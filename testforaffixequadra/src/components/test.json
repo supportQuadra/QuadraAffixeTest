@@ -1,0 +1,20 @@
+[
+    {
+        "id": 0,
+        "name": "Auchan",
+        "address": "Here is Auchan",
+        "city": "Villeneuve"
+    },
+    {
+        "id": 1,
+        "name": "E.Leclerc",
+        "address": "Here is E.Leclerc",
+        "city": "Lille"
+    },
+    {
+        "id": 2,
+        "name": "Carrefour",
+        "address": "Here is Carefour",
+        "city": "Arras"
+    }
+]
