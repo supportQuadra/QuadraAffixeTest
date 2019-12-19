@@ -13,24 +13,61 @@
       </a>
     </li>
     <button @click="addClient">Add One</button>
+
+    <br />
+    <br />
+
+<vuetable ref="vuetable"
+      :fields="['name', 'address', 'city']"
+      :api-mode="false"
+      :data="getClients"
+      data-path=""
+      pagination-path=""
+    ></vuetable>
+
+
   </div>
 </template>
 <script>
 import store from "../store";
 //import Vuex from 'vuex'
+import Vuetable from "vuetable-2";
+import { mapMutations } from 'vuex';
 
 export default {
-  store: store,
   name: "Result",
+  store: store,
+  components: { Vuetable },
   data() {
     return {
-      test: this.msgFromIndex
+      test: this.msgFromIndex,
+      columns: ["name", "address", "city"],
+      options: {
+        headings: {
+          name: "Name",
+          address: "Address",
+          city: "City"
+        },
+        editableColumns: ["name"],
+        sortable: ["name", "address", "city"],
+        filterable: ["name", "adress", "city"]
+      }
     };
   },
   methods: {
+    ...mapMutations([
+      'ADD_CLIENT',
+    ]),
+    ...mapMutations({
+      add: 'ADD_CLIENT'
+    }),
     addClient() {
-      store.commit("ADD_CLIENT", "test", "here", "here again");
-    }
+      this.add({
+        name: "tedfdifdf",
+        address: "difdofiffofffefo",
+        city: "ofkodkfododikfdkfodkf"
+      })
+    },
   },
   computed: {
     getClients() {
